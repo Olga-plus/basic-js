@@ -22,10 +22,10 @@ export default function dateSample(sampleActivity) {
   const HALF_LIFE_PERIOD = 5730;
   const MODERN_ACTIVITY = 15;
   let k = 0.693 / HALF_LIFE_PERIOD
-  if (typeof sampleActivity != 'string' || sampleActivity === 'undefined') {
+  if (typeof sampleActivity != 'string' || sampleActivity === 'undefined' || sampleActivity > 15 || sampleActivity < 0) {
     return false;
   }
-  if (!Number(parseFloat(sampleActivity)) || parseFloat(sampleActivity) <= 0 || isNaN(parseFloat(sampleActivity))){
+  if (!Number(parseFloat(sampleActivity)) || parseFloat(sampleActivity) === 0 || isNaN(parseFloat(sampleActivity))){
     return false;
   }
   else {
