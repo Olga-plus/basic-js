@@ -22,7 +22,14 @@ export default function dateSample(sampleActivity) {
   const HALF_LIFE_PERIOD = 5730;
   const MODERN_ACTIVITY = 15;
   let k = 0.693 / HALF_LIFE_PERIOD
-  if (!Number(parseFloat(sampleActivity))){
+  if (typeof sampleActivity != 'string' || sampleActivity === 'undefined') {
     return false;
+  }
+  if (!Number(parseFloat(sampleActivity)) || parseFloat(sampleActivity) <= 0 || isNaN(parseFloat(sampleActivity))){
+    return false;
+  }
+  else {
+    let activity = parseFloat(sampleActivity);
+    return Math.ceil((Math.log(MODERN_ACTIVITY/activity))/k);
   }
 }
