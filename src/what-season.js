@@ -46,11 +46,11 @@ export default function getSeason(date) {
     // throw new Error('Wrong ar')
 
   try {
-
+    if (Object.prototype.toString.call(date) !== '[object Date]') {
+      return 'Unable to determine the time of year!';
+    }
     
     let month = date.getMonth();
-
-   
 
     if (month < 0 || (month > 11)){
       return 'Invalid date!';
