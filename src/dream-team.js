@@ -22,10 +22,12 @@ export default function createDreamTeam(members ) {
   //   createName = members.filter(el => typeof el === 'string' && parseFloat(el)!= NaN);
   //   return createName.map(el => el.trim()).map(el => el[0]).sort().join('').toUpperCase();
   //   }
-  if (parseFloat(members) === NaN || typeof members === 'number') {
-    return false;
-  } else {
- 
+  try {
+    if (parseFloat(members) === NaN || typeof members === 'number') {
+      return false;
+    }
   return members.filter(el => typeof el === 'string' && parseFloat(el)!= NaN || null || undefined || false || true).map(el => el.trim()).map(el => el[0].toUpperCase()).sort().join('');
-  }
-}
+  
+  } catch (err) {
+    return false;
+  }}
