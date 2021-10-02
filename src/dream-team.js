@@ -16,6 +16,12 @@ import { NotImplementedError } from '../extensions/index.js';
 export default function createDreamTeam(members ) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
-  let createName = members.sort().map(el => el[1]).join('').toUpperCase();
+  let createName = [];
+  for (let i = 0; i < members.length; i++) {
+    if(typeof members[i] === 'string') {
+      createName.push(members[i].trim());
+    }
+  }
+ createName = members.sort().map(el => el[1]).join('').toUpperCase();
   return createName;
 }

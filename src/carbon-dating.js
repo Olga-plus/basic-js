@@ -19,8 +19,10 @@ const HALF_LIFE_PERIOD = 5730;
  */
 export default function dateSample(sampleActivity) {
   // throw new NotImplementedError('Not implemented');
-  const MODERN_ACTIVITY = 15;
   const HALF_LIFE_PERIOD = 5730;
-console.log(sampleActivity);
-  // // remove line with error and write your code here
+  const MODERN_ACTIVITY = 15;
+  let k = 0.693 / HALF_LIFE_PERIOD
+  if (!Number(parseFloat(sampleActivity))){
+    return false;
+  }
 }
